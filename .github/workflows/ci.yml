@@ -29,6 +29,8 @@ jobs:
         key: ${{ runner.os }}-poetry-dep-v3-${{ hashFiles('poetry.lock') }}
     - name: Install Dependencies
       if: steps.poetry_cache_id.outputs.cache-hit != 'true'
+      env:
+        PYTHON_KEYRING_BACKEND: keyring.backends.null.Keyring
       run: |
         poetry install
     - name: Lint with flake8
