@@ -35,8 +35,8 @@ jobs:
         poetry install
     - name: Lint with flake8
       run: |
-       poetry run flake8 ./porec ./test --count --select=E9,F63,F7,F82 --show-source --statistics 
-       poetry run flake8 ./porec ./test --count --max-complexity=10 --max-line-length=127 --statistics 
+       poetry run flake8 ./porec ./tests --count --select=E9,F63,F7,F82 --show-source --statistics 
+       poetry run flake8 ./porec ./tests --count --max-complexity=10 --max-line-length=127 --statistics 
     - name: Lint with mypy
       run: |
         poetry run mypy ./porec ./tests
@@ -71,4 +71,4 @@ jobs:
         poetry install
     - name: Test with pytest
       run: |
-        poetry run pytest ./test
+        poetry run pytest ./tests
