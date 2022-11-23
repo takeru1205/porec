@@ -1,5 +1,8 @@
 # poetry file
 poetry.lock
 
-# pycache dir
+# cache dir
 __pycache__/
+.mypy_cache/
+.pytest_cache/
+
