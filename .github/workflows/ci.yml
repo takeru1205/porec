@@ -24,11 +24,11 @@ jobs:
         pip install poetry
     - name: Cache Poetry
       id: poetry_cache_id
-      uses: actions/cache@v3
+      uses: actions/cache@v2
       with:
         path: |
           .venv
-        key: ${{ runner.os }}-poetry-dep-v3-${{ hashFiles('poetry.lock') }}
+        key: ${{ runner.os }}-poetry-venv-${{ hashFiles('poetry.lock') }}
     - name: Install Dependencies
       if: steps.poetry_cache_id.outputs.cache-hit != 'true'
       run: |
@@ -60,11 +60,11 @@ jobs:
         pip install poetry
     - name: Cache Poetry
       id: poetry_cache_id
-      uses: actions/cache@v3
+      uses: actions/cache@v2
       with:
         path: |
           .venv
-        key: ${{ runner.os }}-poetry-dep-v3-${{ hashFiles('poetry.lock') }}
+        key: ${{ runner.os }}-poetry-venv-${{ hashFiles('poetry.lock') }}
     - name: Install dependencies
       if: steps.poetry_cache_id.outputs.cache-hit != 'true'
       run: |
