@@ -42,7 +42,7 @@ jobs:
         poetry run mypy ./porec ./tests
     - name: Lint with isort 
       run: |
-        poetry run isort ./porec ./tests --chech-only
+        poetry run isort ./porec ./tests --check-only
     - name: Lint with black
       run: |
         poetry run black ./porec ./tests
