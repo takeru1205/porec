@@ -45,7 +45,7 @@ jobs:
       run: |
         poetry run black ./porec ./tests
   test:
-    runs-on:
+    runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v3
     - name: Set up Python ${{ matrix.python-version }}
@@ -70,5 +70,3 @@ jobs:
     - name: Test with pytest
       run: |
         poetry run pytest ./test
- 
-
