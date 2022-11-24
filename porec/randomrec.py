@@ -1,8 +1,8 @@
-from . import base
+from . import baserec
 from .dataset import DataSet
 
 
-class RandomRecommender(base.BaseRecommender):
+class RandomRecommender(baserec.BaseRecommender):
     """Recommendation algorithm that recommend randomly"""
 
     def fit(self, data: DataSet, *args, **kwargs) -> None:
