@@ -16,10 +16,10 @@ class TestRandomRecommender:
         recommender.fit(data)
 
     def test_length(self, init_recommender):
-        len(self.recommender.data) == 8
+        assert len(self.recommender.data) == 8
 
     def test_recommend(self, init_recommender):
-        len(self.recommender.recommend(1)) == 1
-        len(self.recommender.recommend(3)) == 3
-        len(self.recommender.recommend(5)) == 5
-        len(self.recommender.recommend(8)) == 8
+        assert len(self.recommender.recommend(1)) == 1
+        assert len(self.recommender.recommend(3)) == 3
+        assert len(self.recommender.recommend(5)) == 5
+        assert len(self.recommender.recommend(8)) == 8
