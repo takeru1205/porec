@@ -33,3 +33,14 @@ class TestRandomRecommender:
         recs = self.recommender.recommend(5, 1.0, 20.0)
         assert recs["values"].min() >= 1.0
         assert recs["values"].max() <= 20.0
+
+    def test_sorted(self, init_recommender):
+        # the evaluated values are sorted
+        recs = self.recommender.recommend(5, 0.0, 5.0)
+        assert (
+            recs.index
+            == recs.sort_values(
+                by=["values"],
+                ascending=False,
+            ).index
+        ).all()
