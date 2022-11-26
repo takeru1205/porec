@@ -1,3 +1,5 @@
+from copy import deepcopy
+
 import numpy as np
 
 from . import baserec
@@ -18,10 +20,13 @@ class RandomRecommender(baserec.BaseRecommender):
         *args,
         **kwargs,
     ) -> DataSet:
-        rec = self.data.sample(n=K)
+        rec = deepcopy(self.data)
         rec["values"] = np.random.uniform(
             low=low,
             high=high,
-            size=K,
+            size=len(self.data),
         )
-        return rec
+        return rec.sort_values(
+            by=["values"],
+            ascending=False,
+        ).head(K)
